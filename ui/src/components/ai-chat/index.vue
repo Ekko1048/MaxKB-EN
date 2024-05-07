@@ -61,13 +61,13 @@
                   shadow="always"
                   class="dialog-card"
                 >
-                  抱歉，没有查找到相关内容，请重新描述您的问题或提供更多信息。
+                  Sorry, no relevant content was found, please re-describe your question or provide more information.
                 </el-card>
                 <el-card v-else-if="item.is_stop" shadow="always" class="dialog-card">
-                  已停止回答
+                  Already stopped answering
                 </el-card>
                 <el-card v-else shadow="always" class="dialog-card">
-                  回答中 <span class="dotting"></span>
+                  In reply to <span class="dotting"></span>
                 </el-card>
               </div>
 
@@ -76,7 +76,7 @@
                 <div
                   v-if="(id && item.write_ed) || (props.data?.show_source && item.write_ed) || log"
                 >
-                  <el-divider> <el-text type="info">知识来源</el-text> </el-divider>
+                  <el-divider> <el-text type="info">Knowledge sources</el-text> </el-divider>
                   <div class="mb-8">
                     <el-space wrap>
                       <el-button
@@ -121,10 +121,10 @@
                     v-if="item.is_stop && !item.write_ed"
                     @click="startChat(item)"
                     link
-                    >继续</el-button
+                    >continuation</el-button
                   >
                   <el-button type="primary" v-else-if="!item.write_ed" @click="stopChat(item)" link
-                    >停止回答</el-button
+                    >Stop answering</el-button
                   >
                 </div>
 
@@ -147,7 +147,7 @@
         <el-input
           ref="quickInputRef"
           v-model="inputValue"
-          placeholder="请输入"
+          placeholder="Please enter"
           :rows="1"
           type="textarea"
           :maxlength="1024"
@@ -230,7 +230,7 @@ const isMdArray = (val: string) => val.match(/^-\s.*/m)
 const prologueList = computed(() => {
   const temp = props.available
     ? props.data?.prologue
-    : '抱歉，当前正在维护，无法提供服务，请稍后再试！'
+    : 'Sorry, currently under maintenance and unavailable, please try again later!'
   let arr: any = []
   const lines = temp?.split('\n')
   lines?.forEach((str: string, index: number) => {
