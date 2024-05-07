@@ -18,7 +18,7 @@ MaxKB 是一款基于 LLM 大语言模型的知识库问答系统。MaxKB = Max 
 ## 快速开始
 
 ```
-docker run -d --name=maxkb -p 8080:8080 -v ~/.maxkb:/var/lib/postgresql/data 1panel/maxkb
+docker run -d --name=maxkb -p 8080:8080 -v ~/.maxkb:/var/lib/postgresql/data Ekko1048/maxkb
 
 # 用户名: admin
 # 密码: MaxKB@123..
